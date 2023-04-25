@@ -164,6 +164,13 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Hakkimizda\hakkimizda.jpg" />
+    <Content Include="Images\Slider\slide-1.jpg" />
+    <Content Include="Images\Slider\slide-2.jpg" />
+    <Content Include="Images\Slider\slide-3.jpg" />
+    <Content Include="Images\Uygulamalar\uyg-1.jpg" />
+    <Content Include="Images\Uygulamalar\uyg-2.jpg" />
+    <Content Include="Images\Uygulamalar\uyg-3.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -281,7 +288,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
