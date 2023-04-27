@@ -26,5 +26,11 @@ namespace IdentitySample.Controllers
 
             return View();
         }
+        public ActionResult AdminDash()
+        {
+
+            return View();
+        }
+
     }
 }
