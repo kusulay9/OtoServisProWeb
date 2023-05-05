@@ -1,6 +1,6 @@
 ﻿using Owin;
 
-namespace IdentitySample
+namespace OtoServis
 {
     public partial class Startup
     {

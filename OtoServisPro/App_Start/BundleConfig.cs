@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace IdentitySample
+namespace OtoServis
 {
     public class BundleConfig
     {
