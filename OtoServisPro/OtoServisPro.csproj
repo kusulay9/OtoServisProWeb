@@ -291,6 +291,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OtoServisPro.BusinessLayer\OtoServisPro.BusinessLayer.csproj">
+      <Project>{2c2cf59c-ec41-4c37-a229-142a3caaaf2d}</Project>
+      <Name>OtoServisPro.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OtoServisPro.Entities\OtoServisPro.Entities.csproj">
+      <Project>{ba77dff9-28a2-4e23-9eab-8edd11d7a360}</Project>
+      <Name>OtoServisPro.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
