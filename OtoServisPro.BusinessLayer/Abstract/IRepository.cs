@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OtoServisPro.BusinessLayer.Abstract
 {
-    public interface IRespository<T>
+    public interface IRepository<T>
     {
         List<T> List();
         T GetById(int id);
