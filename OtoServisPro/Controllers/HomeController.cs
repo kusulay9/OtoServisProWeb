@@ -1,12 +1,17 @@
-﻿using System.Web.Mvc;
+﻿using OtoServisPro.BusinessLayer.Abstract;
+using OtoServisPro.Entities.Web;
+using System.Web.Mvc;
 
 namespace OtoServis.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly Repository<Slider> rpSlider = new Repository<Slider>();
+
         [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.Slider = rpSlider.List();
             return View();
         }
 
