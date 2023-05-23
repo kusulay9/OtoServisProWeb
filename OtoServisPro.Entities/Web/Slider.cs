@@ -18,5 +18,4 @@ namespace OtoServisPro.Entities.Web
         [MaxLength(500)]
         public string ResimYol { get; set; } //Resim Yolu 
     }
-
 }
