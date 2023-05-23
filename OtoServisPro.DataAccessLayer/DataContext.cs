@@ -11,5 +11,6 @@ namespace OtoServisPro.DataAccessLayer
     public class DataContext : DbContext
     {
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet <Kampanya> Kampanyas { get; set; }
     }
 }
