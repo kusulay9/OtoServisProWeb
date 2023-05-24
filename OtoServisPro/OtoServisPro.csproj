@@ -458,6 +458,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Controllers\Web\HakkimizdaController.cs" />
     <Compile Include="Controllers\Web\KampanyaController.cs" />
     <Compile Include="Controllers\Web\SliderController.cs" />
     <Compile Include="Controllers\Web\UygulamaController.cs" />
@@ -542,6 +543,7 @@
     <Content Include="Views\Shared\EditorTemplates\tinymce_full_compressed.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
     <Content Include="Views\Uygulama\Index.cshtml" />
+    <Content Include="Views\Hakkimizda\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

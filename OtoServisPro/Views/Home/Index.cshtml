@@ -84,19 +84,18 @@
     <hr />
     <h1 class="text-center">Hakkımızda</h1>
     <div class="row mt-5">
-        <div class="col-md-4">
-            <img class="img-fluid" src="~/Images/Hakkimizda/hakkimizda.jpg" alt="" />
+        @if (ViewBag.Hakkimizda != null)
+        {
+            var hakkimizda = (Hakkimizda)ViewBag.Hakkimizda;
+            <div class="col-md-3">
+                <img class="img-fluid" src="@hakkimizda.Resim" alt="" />
 
-        </div>
-        <div class="col-md-8">
-            <p>
-                Oto Servisimiz, araçlarınızın bakım ve onarımı konusunda uzmanlaşmış bir ekibe sahip tam donanımlı bir otomobil servisidir. Müşterilerimize en kaliteli hizmeti sunmak için her zaman yanınızdayız.
+            </div>
+            <div class="col-md-9">
+                @Html.Raw(hakkimizda.Icerik)
+            </div>
+        }
 
-                <br />Deneyimli teknisyenlerimiz, modern ekipmanlarımız ve yüksek kaliteli yedek parçalarımızla, aracınızın en iyi şekilde bakımını yaparız.<br /> Personelimiz, müşterilerimizi memnun etmek için ellerinden gelenin en iyisini yaparlar. Aracınızın tamir süreci boyunca size sürekli olarak bilgi ve güncellemeler sağlıyoruz. İşimizi kaliteli ve zamanında bir şekilde tamamlamak için elimizden geleni yapıyoruz.
-
-                <br />Oto servisimiz, araçlarınızın en iyi şekilde çalışmasını sağlamak için tüm bakım ve onarım ihtiyaçlarınızı karşılamak için burada. Bizi ziyaret edin ve siz de kaliteli oto servisimizin ayrıcalıklarından faydalanın.
-            </p>
-        </div>
     </div>
     <hr />
     <h1 class="text-center">Blog</h1>
