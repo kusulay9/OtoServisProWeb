@@ -14,8 +14,26 @@ namespace OtoServisPro.Controllers.Web
         // GET: Kampanya
         public ActionResult Index()
         {
+            if (rpKampanya.List().Count==0)
+            {
+                Kampanya k = new Kampanya();
+                k.Icerik = "-";
+                rpKampanya.Insert(k);
+            }
             var kampanya = rpKampanya.List().FirstOrDefault();
             return View(kampanya);
+        }
+        [HttpPost]
+        public ActionResult KampanyaKaydet(Kampanya kampana)
+        {
+            if (rpKampanya.List().Count>0)
+            {
+                var guncellenecek = rpKampanya.List().FirstOrDefault();
+                guncellenecek.Icerik = kampana.Icerik;
+                rpKampanya.Update(guncellenecek);
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

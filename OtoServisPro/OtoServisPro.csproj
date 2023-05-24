@@ -460,6 +460,7 @@
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\Web\KampanyaController.cs" />
     <Compile Include="Controllers\Web\SliderController.cs" />
+    <Compile Include="Controllers\Web\UygulamaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -540,6 +541,7 @@
     <Content Include="Views\Kampanya\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_full_compressed.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
+    <Content Include="Views\Uygulama\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

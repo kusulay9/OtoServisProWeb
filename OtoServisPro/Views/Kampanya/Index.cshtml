@@ -4,9 +4,14 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<div class="row">
-    <div class="col">
-        @Html.EditorFor(model => model.Icerik, new {htmlAtributes=new {@class="form-control"}})
-        <input type="button" class="btn btn-primary mt-2" value="Kaydet"/>
+@using (Html.BeginForm("KampanyaKaydet", "Kampanya"))
+{
+    <div class="row">
+        <div class="col">
+            @Html.EditorFor(model => model.Icerik, new { htmlAtributes = new { @class = "form-control" } })
+            <input type="submit" class="btn btn-primary mt-2" value="Kaydet" />
+        </div>
     </div>
-</div>
+}
+
+
