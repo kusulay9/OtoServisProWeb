@@ -15,5 +15,6 @@ namespace OtoServisPro.DataAccessLayer
         public DbSet <Uygulama> Uygulamas { get; set; }
         public DbSet<Hakkimizda> Hakkimizdas { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<HaritaIletisim> HaritaIletisims { get; set; }
     }
 }

@@ -463,6 +463,7 @@
     <Compile Include="Controllers\Web\KampanyaController.cs" />
     <Compile Include="Controllers\Web\SliderController.cs" />
     <Compile Include="Controllers\Web\UygulamaController.cs" />
+    <Compile Include="Controllers\Web\IletisimController.cs" />
     <Compile Include="Custom\Ozel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -552,6 +553,7 @@
     <Content Include="Views\Home\BlogDetayi.cshtml" />
     <Content Include="Views\Blog\Sil.cshtml" />
     <Content Include="Views\Blog\BlogDuzenle.cshtml" />
+    <Content Include="Views\Iletisim\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
