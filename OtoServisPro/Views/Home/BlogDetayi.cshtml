@@ -1,0 +1,14 @@
+﻿@model OtoServisPro.Entities.Web.Blog
+
+@{
+    ViewBag.Title = Model.Baslik;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container mt-3">
+    <h1>@Model.Baslik</h1>
+    <br />
+    @Html.Raw(@Model.Icerik) <span class="small fw-bold">Tarih : @Model.Tarih.ToShortDateString()</span>
+    <br/>
+</div>

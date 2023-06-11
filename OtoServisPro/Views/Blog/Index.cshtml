@@ -43,9 +43,8 @@
             </td>
             <td>
                 <div class="btn-group">
-                    <input type="button" class="btn btn-sm btn-danger" value="Sil" />
-                    <input type="button" class="btn btn-sm btn-secondary" value="Düzenle" />
-
+                    @Html.ActionLink("Sil","Sil", new {blogid = item.BlogId},new { @class = "btn btn-sm btn-danger" })
+                    @Html.ActionLink("Düzenle","BlogDuzenle", new {blogid=item.BlogId},new {@class="btn btn-sm btn-secondary"})
                 </div>
             </td>
         </tr>

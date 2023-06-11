@@ -1,0 +1,47 @@
+﻿@model OtoServisPro.Entities.Web.Blog
+
+@{
+    ViewBag.Title = "Blog Sil";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h3>Silmek İstiyor Musunuz?</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            Blog Başlığı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+
+        <dt>
+            Blog İçeriği
+        </dt>
+
+        <dd>
+           @Html.Raw(Model.Icerik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Model.Tarih.ToShortDateString()
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Listeye Dön", "Index")
+        </div>
+    }
+</div>
