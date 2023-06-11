@@ -12,6 +12,7 @@ namespace OtoServis.Controllers
         private readonly Repository<Uygulama> rpUygulama = new Repository<Uygulama>();
         private readonly Repository<Hakkimizda> rpHakkimizda = new Repository<Hakkimizda>();
         private readonly Repository<Blog> rpBlog = new Repository<Blog>();
+        private readonly Repository<HaritaIletisim> rpIletisim = new Repository<HaritaIletisim>();
 
 
         [HttpGet]
@@ -22,8 +23,8 @@ namespace OtoServis.Controllers
             ViewBag.Uygulama = rpUygulama.List();
             ViewBag.Hakkimizda = rpHakkimizda.List().FirstOrDefault();
             ViewBag.Blog = rpBlog.List().OrderByDescending(x => x.BlogId).Take(4).ToList();
-
-
+            ViewBag.Harita = rpIletisim.List().FirstOrDefault();
+            ViewBag.Adres = rpIletisim.List().FirstOrDefault().Iletisim;
             return View();
         }
 
@@ -52,6 +53,7 @@ namespace OtoServis.Controllers
         public ActionResult BlogDetayi(string baslik,int blogid)
         {
             var detay = rpBlog.GetById(blogid);
+            ViewBag.Adres = rpIletisim.List().FirstOrDefault().Iletisim;
             return View(detay);
         }
 
