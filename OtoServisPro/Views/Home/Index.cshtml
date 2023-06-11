@@ -1,4 +1,6 @@
 ﻿@using OtoServisPro.Entities.Web;
+@using System.Text.RegularExpressions
+
 @{
     ViewBag.Title = "Oto Servis";
 }
@@ -19,7 +21,7 @@
             @foreach (var item in slider)
             {
                 string aktif = "";
-                if (sayac==0)
+                if (sayac == 0)
                 {
                     aktif = "active";
                 }
@@ -49,15 +51,15 @@
 
 <div class="container mt-4">
     @if (ViewBag.Kampanya != null)
-            {
-                var kampanya = (Kampanya)ViewBag.Kampanya;
+    {
+        var kampanya = (Kampanya)ViewBag.Kampanya;
         <div class="row">
             <div class="col">
                 @Html.Raw(kampanya.Icerik)
             </div>
         </div>
     }
-    
+
     <hr />
     <h1 class="text-center">Uygulamalarımız</h1>
     <div class="row mt-5">
@@ -100,30 +102,28 @@
     <hr />
     <h1 class="text-center">Blog</h1>
     <div class="row mt-5">
-        <div class="col-md-6">
-            <h5>Fiyat-Performans Ürünleri</h5>
-            <p>
-                Fiyat-performans ürünleri, uygun fiyata yüksek performans sunan ürünlerdir. Bu tür ürünler, kaliteli malzemelerle üretilirken aynı zamanda müşteri bütçesine de uygun olması nedeniyle tercih edilir. Oto servislerde de, araç sahiplerine fiyat-performans ürünleri önerilerek daha ekonomik bir bakım ve onarım imkanı sunulabilir. Bu şekilde müşteriler, hem kaliteli hizmet alırken hem de bütçelerini zorlamadan araçlarını koruyabilirler.
-            </p>
-        </div>
-        <div class="col-md-6">
-            <h5>Periyodik Bakım Süresi</h5>
-            <p>
-                Periyodik bakım süresi, aracınızın uzun ömürlü olması ve güvenli bir şekilde kullanılabilmesi için düzenli olarak yapılması gereken bir işlemdir. Bu süreyi ihmal etmek, ciddi arızalara ve yüksek onarım maliyetlerine yol açabilir. Bu nedenle, aracınızın periyodik bakımlarını düzenli olarak yaptırmak önemlidir.
-            </p>
-        </div>
-        <div class="col-md-6">
-            <h5>Kilometre Garantisi</h5>
-            <p>
-                Oto servislerde yapılan işçilik sonrası kilometre garantisi, müşterilere sunulan bir hizmettir. Bu garanti, yapılan işlemin kalitesini ve müşteri memnuniyetini garanti altına alır. Garanti süresi ve kapsamı servisler arasında değişebilir. Müşteriler, yapılan işlemin belirli bir süre veya belirli bir mesafe kat edildikten sonra sorunlu hale gelmesi durumunda ücretsiz olarak yeniden onarım işlemi yaptırabilirler. Bu şekilde, müşteriler araçlarına daha güvenli ve uzun ömürlü bir bakım ve onarım hizmeti aldıklarından emin olabilirler.
-            </p>
-        </div>
-        <div class="col-md-6">
-            <h5>Mobil Hizmet</h5>
-            <p>
-                Mobil hizmet, oto servislerin müşterilerine sunabileceği bir hizmettir. Bu hizmet sayesinde müşteriler, araçlarının bakım ve onarım işlemlerini servise gitmeden yerinde yaptırabilirler. Mobil hizmet, müşterilere zamandan tasarruf etme ve daha konforlu bir hizmet alma imkanı sunar. Ayrıca, arızalı araçlarını tamir ettirmek için servise gitmek istemeyen veya yol kenarında kalan müşterilerin de yardımına koşabilir.
-            </p>
-        </div>
+        @if (ViewBag.Blog != null)
+        {
+            var blog = (List<Blog>)ViewBag.Blog;
+            foreach (var item in blog)
+            {
+                <div class="col-md-6 mb-4">
+                    <h5>@item.Baslik</h5>
+                    @{
+                        string kisaltma = Regex.Replace(item.Icerik, "<.*?>", string.Empty);
+                        if (kisaltma.Length > 200)
+                        {
+                            kisaltma = kisaltma.Substring(0, 200) + "...";
+                        }
+                        @kisaltma
+                    }
+
+                </div>
+            }
+
+        }
+
+
     </div>
     <hr />
     <div class="row">
