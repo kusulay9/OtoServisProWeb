@@ -27,5 +27,32 @@ namespace OtoServisPro.Controllers.Servis
             return RedirectToAction("Index");
         }
 
+        public ActionResult Edit(int musteriid)
+        {
+            var musteri = rpMusteri.GetById(musteriid);
+            return View(musteri);
+        }
+        [HttpPost]
+        public ActionResult Edit(Musteri musteri)
+        {
+            var guncelle = rpMusteri.GetById(musteri.MusteriId);
+            guncelle.AdSoyad = musteri.AdSoyad;
+            guncelle.Telefon = musteri.Telefon;
+            guncelle.Eposta = musteri.Eposta;
+            guncelle.Adres = musteri.Adres;
+            rpMusteri.Update(guncelle);
+            TempData["Ok"] = guncelle.AdSoyad + " Müşterisi Güncellenmiştir";
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+
+        public ActionResult MusteriSil(int id)
+        {
+            var silinecek = rpMusteri.GetById(id);
+            rpMusteri.Delete(silinecek);
+            TempData["Ok"] = "Müşteri Silinmiştir";
+            return RedirectToAction("Index");
+        }
+
     }
 }
