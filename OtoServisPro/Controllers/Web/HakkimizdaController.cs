@@ -10,6 +10,8 @@ using System.Web.Mvc;
 
 namespace OtoServisPro.Controllers.Web
 {
+    [Authorize(Roles = "Admin")]
+
     public class HakkimizdaController : Controller
     {
         private readonly Repository<Hakkimizda> rpHakkimizda = new Repository<Hakkimizda>();

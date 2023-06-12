@@ -8,6 +8,8 @@ using System.Web.Mvc;
 
 namespace OtoServisPro.Controllers.Web
 {
+    [Authorize(Roles = "Admin")]
+
     public class IletisimController : Controller
     {
         private readonly Repository<HaritaIletisim> rpIletisim = new Repository<HaritaIletisim>();

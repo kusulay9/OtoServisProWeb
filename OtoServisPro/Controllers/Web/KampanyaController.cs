@@ -8,6 +8,8 @@ using System.Web.Mvc;
 
 namespace OtoServisPro.Controllers.Web
 {
+    [Authorize(Roles = "Admin")]
+
     public class KampanyaController : Controller
     {
         Repository<Kampanya> rpKampanya = new Repository<Kampanya>();
