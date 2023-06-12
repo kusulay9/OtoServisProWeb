@@ -1,4 +1,5 @@
-﻿using OtoServisPro.Entities.Web;
+﻿using OtoServisPro.Entities.Servis;
+using OtoServisPro.Entities.Web;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -16,5 +17,6 @@ namespace OtoServisPro.DataAccessLayer
         public DbSet<Hakkimizda> Hakkimizdas { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<HaritaIletisim> HaritaIletisims { get; set; }
+        public DbSet<Musteri> Musteris { get; set; }
     }
 }

@@ -20,11 +20,25 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/Home/Index">Anasayfa</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/Home/#kampanya">Kampanya</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/Home/#uygulamalarimiz">Uygulamalarımız</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/Home/#hakkimizda">Hakkımızda</a>                                               
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/Home/#blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/Home/#iletisim">İletişim</a>
+                    </li>
 
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <li class="nav-item"><a href="/Panel/" class="btn btn-sm btn-warning">Panel</a></li>
-                        
+                        <li class="nav-item"><a href="/Panel/" class="nav-link text-white bg-danger">Panel</a></li>                    
                     }
                 </ul>
 

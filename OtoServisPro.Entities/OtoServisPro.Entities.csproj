@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servis\Musteri.cs" />
     <Compile Include="Web\Blog.cs" />
     <Compile Include="Web\Hakkimizda.cs" />
     <Compile Include="Web\HaritaIletisim.cs" />

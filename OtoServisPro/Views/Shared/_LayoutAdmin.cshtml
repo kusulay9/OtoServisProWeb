@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/Panel/">Panel</a>
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Company name</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,7 +44,18 @@
                                 </ul>
                             </div>
                         </li>
-
+                        <li class="border-top my-3"></li>
+                        <li class="mb-1">
+                            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#servis-collapse" aria-expanded="true">
+                                <span data-feather="home" class="align-text-bottom"></span>Servis Yönetim
+                            </button>
+                            <div class="collapse" id="servis-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li class="nav-item"><a href="/Musteri/" class="nav-link">Müşteri</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
                         <li class="border-top my-3"></li>
                         <li class="mb-1">
                             <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
@@ -52,8 +63,7 @@
                             </button>
                             <div class="collapse" id="account-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li class="nav-item"><a href="/RolesAdmin/" class="nav-link">Rol Yöneticisi</a></li>
-                                    <li class="nav-item"><a href="/UsersAdmin/" class="nav-link">Kullanıcı Yöneticisi</a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link">New...</a></li>
 
                                 </ul>
                             </div>
