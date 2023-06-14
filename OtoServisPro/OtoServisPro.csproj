@@ -458,6 +458,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\Servis\IsemriController.cs" />
     <Compile Include="Controllers\Servis\MusteriController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\Web\BlogController.cs" />
@@ -560,6 +561,8 @@
     <Content Include="Views\Musteri\Index.cshtml" />
     <Content Include="Views\Musteri\Create.cshtml" />
     <Content Include="Views\Musteri\Edit.cshtml" />
+    <Content Include="Views\Isemri\Index.cshtml" />
+    <Content Include="Views\Isemri\IsemriOlustur.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

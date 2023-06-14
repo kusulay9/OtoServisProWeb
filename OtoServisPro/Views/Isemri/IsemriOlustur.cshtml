@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "İş Emri Oluştur";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+        <div class="col-md-4">
+        Marka
+        <select name="marka" class="form-control">
+            <option>Volvo</option>
+            <option>Opel</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        Model
+        <select name="model" class="form-control">
+            <option>S40</option>
+            <option>Astra</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        Plaka
+        <input type="text" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        Şase No
+        <input type="text" class="form-control" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        Araç KM
+        <input type="text" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        Model Yılı
+        <input type="text" class="form-control" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        Yakıt Türü
+        <select name="yakit" class="form-control">
+            <option>Benzin</option>
+            <option>Dizel</option>
+            <option>LPG</option>
+            <option>Hybrid</option>
+            <option>Elektrik</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        Geliş Tarihi
+        <input type="text" class="form-control" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-8">
+        Geliş Sebebi
+        <textarea class="form-control"></textarea>
+    </div>
+</div>
+<div class="row">
+    <div class="col-8">
+        <input type="submit" class="btn btn-primary float-end mt-2" value="Kaydet"/>
+    </div>
+</div>
