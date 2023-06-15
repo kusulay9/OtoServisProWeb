@@ -459,6 +459,7 @@
     <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\Servis\IsemriController.cs" />
+    <Compile Include="Controllers\Servis\ModelMarkaController.cs" />
     <Compile Include="Controllers\Servis\MusteriController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\Web\BlogController.cs" />
@@ -572,6 +573,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ModelMarka\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OtoServisPro.BusinessLayer\OtoServisPro.BusinessLayer.csproj">
