@@ -1,0 +1,37 @@
+﻿@model IEnumerable<OtoServisPro.Entities.Servis.Marka>
+
+@{
+    ViewBag.Title = "Markalar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("MarkaKaydet", "ModelMarka"))
+{
+    <div class="row">
+        <div class="col-4">
+            Marka Adı Yazınız
+            <input type="text" name="MarkaAd" class="form-control" />
+        </div>
+        <div class="col">
+            <br />
+            <input type="submit" class="btn btn-primary" value="Kaydet" />
+        </div>
+    </div>
+}
+<hr />
+
+<table class="table table-sm table-responsive-sm">
+    <thead>
+        <tr>
+            <th>Marka Adı</th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MarkaAd</td>
+            <td>@Html.ActionLink("Modeller", "ModelListesi", new { markaid = item.MarkaId }, new { @class = "btn btn-sm btn-warning" })</td>
+        </tr>
+    }
+</table>
