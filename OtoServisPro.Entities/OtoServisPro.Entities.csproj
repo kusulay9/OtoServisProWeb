@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servis\Isemri.cs" />
     <Compile Include="Servis\Marka.cs" />
     <Compile Include="Servis\Model.cs" />
     <Compile Include="Servis\Musteri.cs" />

@@ -3,64 +3,71 @@
     ViewBag.Title = "İş Emri Oluştur";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<div class="row">
-    <div class="col-md-4">
-        Marka
-        @Html.DropDownList("Markalar", new SelectList(ViewBag.Marka, "MarkaId", "MarkaAd"), "Marka Seç", new { @class = "form-control", required = "required", onchange = "ModelDoldur()" })
+@using (Html.BeginForm("IsemriKaydet", "Isemri"))
+{
+    <input type="hidden" name="MusteriId" value="@ViewBag.MusteriId"/>
+    <div class="row">
+        <div class="col-md-4">
+            Marka
+            @Html.DropDownList("Markalar", new SelectList(ViewBag.Marka, "MarkaId", "MarkaAd"), "Marka Seç", new { @class = "form-control", required = "required", onchange = "ModelDoldur()" })
+        </div>
+        <div class="col-md-4">
+            Model
+            <select name="ModelId" id="ModelId" class="form-control">
+            </select>
+        </div>
     </div>
-    <div class="col-md-4">
-        Model
-        <select name="ModelId" id="ModelId" class="form-control">
-        </select>
+    <div class="row">
+        <div class="col-md-4">
+            Plaka
+            <input type="text" name="Plaka" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            Şase No
+            <input type="text" name="SaseNo" class="form-control" />
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        Plaka
-        <input type="text" class="form-control" />
+    <div class="row">
+        <div class="col-md-4">
+            Araç KM
+            <input type="text" name="AracKm" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            Model Yılı
+            <input type="text" name="ModelYil" class="form-control" />
+        </div>
     </div>
-    <div class="col-md-4">
-        Şase No
-        <input type="text" class="form-control" />
+    <div class="row">
+        <div class="col-md-4">
+            Yakıt Türü
+            <select name="YakitTuru" class="form-control">
+                <option>Benzin</option>
+                <option>Dizel</option>
+                <option>LPG</option>
+                <option>Hybrid</option>
+                <option>Elektrik</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            Geliş Tarihi
+            <input type="date" name="GelisTarihi" class="form-control" />
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        Araç KM
-        <input type="text" class="form-control" />
+    <div class="row">
+        <div class="col-8">
+            Geliş Sebebi
+            <textarea name="GelisSebebi"class="form-control"></textarea>
+        </div>
     </div>
-    <div class="col-md-4">
-        Model Yılı
-        <input type="text" class="form-control" />
+    <div class="row">
+        <div class="col-8">
+            <input type="submit" class="btn btn-primary float-end mt-2" value="Kaydet" />
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        Yakıt Türü
-        <select name="yakit" class="form-control">
-            <option>Benzin</option>
-            <option>Dizel</option>
-            <option>LPG</option>
-            <option>Hybrid</option>
-            <option>Elektrik</option>
-        </select>
-    </div>
-    <div class="col-md-4">
-        Geliş Tarihi
-        <input type="text" class="form-control" />
-    </div>
-</div>
-<div class="row">
-    <div class="col-8">
-        Geliş Sebebi
-        <textarea class="form-control"></textarea>
-    </div>
-</div>
-<div class="row">
-    <div class="col-8">
-        <input type="submit" class="btn btn-primary float-end mt-2" value="Kaydet" />
-    </div>
-</div>
+}
+
+
+
 
 <script>
     function ModelDoldur() {
@@ -74,7 +81,7 @@
                 url: '/ModelMarka/ModelDoldur',
                 type: 'GET',
                 dataType: 'JSON',
-                data: { markaid:_markaid },
+                data: { markaid: _markaid },
                 success: function (modeller) {
                     $('#ModelId').html("");
                     $.each(modeller, function (i, model) {

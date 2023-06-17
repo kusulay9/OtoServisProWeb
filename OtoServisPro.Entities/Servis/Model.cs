@@ -13,8 +13,10 @@ namespace OtoServisPro.Entities.Servis
         public int ModelId { get; set; }
         public string ModelAd { get; set; }
         public int MarkaId { get; set; }
+        public bool Silindi { get; set; }
 
-        public List<Model> Models { get; set; }
+        public virtual Marka Marka { get; set; }
+        public List<Isemri> Isemri { get; set; }
 
     }
 }

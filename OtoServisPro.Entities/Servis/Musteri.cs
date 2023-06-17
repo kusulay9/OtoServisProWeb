@@ -19,5 +19,6 @@ namespace OtoServisPro.Entities.Servis
         public string Eposta { get; set; }
         [MaxLength(500)]
         public string Adres { get; set; }
+        public List<Isemri> Isemris { get; set; }
     }
 }

@@ -28,6 +28,13 @@ namespace OtoServisPro.Controllers.Servis
         public ActionResult IsemriOlustur(int musteriid)
         {
             ViewBag.Marka = rpMarka.List();
+            ViewBag.MusteriId = musteriid;
+            return View();
+        }
+
+        public ActionResult IsemriKaydet(Isemri isemri)
+        {
+
             return View();
         }
     }

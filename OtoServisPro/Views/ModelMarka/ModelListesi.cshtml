@@ -24,15 +24,56 @@
     <thead>
         <tr>
             <td>Modeller</td>
+            <td></td>
         </tr>
     </thead>
     @foreach (var item in Model)
     {
         <tr>
             <td>@item.ModelAd</td>
+            <td>
+                <button type="button" onclick="silmodal(this)" class="btn btn-sm btn-danger float-end" data-bs-toggle="modal" data-modelad="@item.ModelAd" data-id="@item.ModelId" data-bs-target="#SilModal">
+                    Sil
+                </button>
+            </td>
         </tr>
     }
 </table>
 <div>
     @Html.ActionLink("Markalara Geri Dön", "Index", null, new { @class = "btn btn-dark btn-sm" })
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="SilModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Model Silme İşlemi</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <strong id="silModelAd"></strong> Modelini Silmek İstediğinize Emin Misiniz ?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("ModelSil", "ModelMarka", FormMethod.Post))
+                {
+                    <input type="hidden" id="hiddenId" name="id" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        function silmodal(btn) {
+            var xid = $(btn).data('id');
+            var modelad = $(btn).data('modelad');
+            $('#silModelAd').text(modelad);
+            $('#hiddenId').val(xid);
+        }
+    </script>
+}

@@ -25,13 +25,57 @@
         <tr>
             <th>Marka Adı</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     @foreach (var item in Model)
     {
         <tr>
             <td>@item.MarkaAd</td>
-            <td>@Html.ActionLink("Modeller", "ModelListesi", new { markaid = item.MarkaId }, new { @class = "btn btn-sm btn-warning" })</td>
+            <td>
+                <div class="btn-group float-end">
+                    @Html.ActionLink("Modeller", "ModelListesi", new { markaid = item.MarkaId }, new { @class = "btn btn-sm btn-warning" })
+                    <button type="button" onclick="silmodal(this)" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-markaad="@item.MarkaAd" data-id="@item.MarkaId" data-bs-target="#SilModal">
+                        Sil
+                    </button>   
+                </div>                         
+            </td>
         </tr>
     }
 </table>
+
+<!-- Modal -->
+<div class="modal fade" id="SilModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Marka Silme İşlemi</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <strong id="silMarkaAd"></strong> Markasını Silmek İstediğinize Emin Misiniz ?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("MarkaSil", "ModelMarka", FormMethod.Post))
+                {
+                    <input type="hidden" id="hiddenId" name="id" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        function silmodal(btn) {
+            var xid = $(btn).data('id');
+            var markaad = $(btn).data('markaad');
+            $('#silMarkaAd').text(markaad);
+            $('#hiddenId').val(xid);
+        }
+    </script>
+}
+

@@ -15,7 +15,7 @@ namespace OtoServisPro.Controllers.Servis
         // GET: MarkaModel
         public ActionResult Index()
         {
-            return View(rpMarkalar.Get().OrderBy(x => x.MarkaAd).ToList());
+            return View(rpMarkalar.Get(x=> x.Silindi==false).OrderBy(x => x.MarkaAd).ToList());
         }
 
         public JsonResult ModelDoldur(int markaid)
@@ -39,13 +39,31 @@ namespace OtoServisPro.Controllers.Servis
             var marka = rpMarkalar.GetById(markaid);
             ViewBag.Title = marka.MarkaAd + " Modelleri Listesi";
             ViewBag.MarkaId = markaid;
-            return View(rpModeller.Get(x => x.MarkaId == markaid).ToList());
+            return View(rpModeller.Get(x => x.MarkaId == markaid && x.Silindi==false).ToList());
         }
         public ActionResult ModelKaydet(Model model)
         {
             rpModeller.Insert(model);
             TempData["Ok"] = model.ModelAd + " Kaydedildi";
             return RedirectToAction("ModelListesi", new { markaid = model.MarkaId });
+        }
+        [HttpPost]
+        public ActionResult MarkaSil(int id)
+        {
+            var marka = rpMarkalar.GetById(id);
+            marka.Silindi = true;
+            rpMarkalar.Update(marka);
+            TempData["Ok"] = marka.MarkaAd + " Markası Silindi";
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ModelSil(int id)
+        {
+            var model = rpModeller.GetById(id);
+            model.Silindi = true;
+            rpModeller.Update(model);
+            TempData["Ok"] = model.ModelAd + " Modeli Silindi";
+            return RedirectToAction("ModelListesi",new { markaid = model.MarkaId });
         }
     }
 }

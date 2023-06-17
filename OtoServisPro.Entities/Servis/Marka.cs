@@ -12,6 +12,7 @@ namespace OtoServisPro.Entities.Servis
         [Key]
         public int MarkaId { get; set; }
         public string MarkaAd { get; set; }
+        public bool Silindi { get; set; } //State/Status
         public virtual Marka Markas { get; set; }
 
     }

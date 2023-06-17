@@ -20,6 +20,7 @@ namespace OtoServisPro.DataAccessLayer
         public DbSet<Musteri> Musteris { get; set; }
         public DbSet<Marka> Marka { get; set; }
         public DbSet<Model> Model { get; set; }
+        public DbSet<Isemri> Isemris { get; set; }
     }
 }
 
