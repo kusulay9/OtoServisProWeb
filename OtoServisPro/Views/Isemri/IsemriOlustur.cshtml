@@ -1,11 +1,41 @@
-﻿
+﻿@using OtoServisPro.Entities.Servis
+@model IEnumerable<OtoServisPro.Entities.Servis.Isemri>
 @{
-    ViewBag.Title = "İş Emri Oluştur";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+@if (ViewBag.AcikIsemirleri != null)
+{
+    var acik = (List<Isemri>)ViewBag.AcikIsemirleri;
+    if (acik.Count > 0)
+    {
+        <h5>Bu Müşteriye Ait Açık İş Emirleri</h5>
+
+    }
+    <table class="table table-sm table-responsive">
+        @foreach (var item in acik)
+        {
+            <thead>
+                <tr>
+                    <th>Marka</th>
+                    <th>Model</th>
+                    <th>Plaka</th>
+                    <th>Geliş Tarihi</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tr>
+                <td>@item.Model.Marka.MarkaAd</td>
+                <td>@item.Model.ModelAd</td>
+                <td>@item.Plaka</td>
+                <td>@item.GelisTarihi.ToShortDateString()</td>
+            </tr>
+        }
+    </table>
+}
+<hr />
 @using (Html.BeginForm("IsemriKaydet", "Isemri"))
 {
-    <input type="hidden" name="MusteriId" value="@ViewBag.MusteriId"/>
+    <input type="hidden" name="MusteriId" value="@ViewBag.MusteriId" />
     <div class="row">
         <div class="col-md-4">
             Marka
@@ -56,7 +86,7 @@
     <div class="row">
         <div class="col-8">
             Geliş Sebebi
-            <textarea name="GelisSebebi"class="form-control"></textarea>
+            <textarea name="GelisSebebi" class="form-control"></textarea>
         </div>
     </div>
     <div class="row">
@@ -66,7 +96,37 @@
     </div>
 }
 
+@if (ViewBag.KapaliIsemirleri != null)
+{
 
+    var kapali = (List<Isemri>)ViewBag.KapaliIsemirleri;
+    if (kapali.Count > 0)
+    {
+        <hr />
+        <h5>Müşteri Geçmişi</h5>
+        <table class="table table-sm table-responsive">
+            <thead>
+                <tr>
+                    <th>Marka</th>
+                    <th>Model</th>
+                    <th>Plaka</th>
+                    <th>Geliş Tarihi</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Model.Marka.MarkaAd</td>
+                    <td>@item.Model.ModelAd</td>
+                    <td>@item.Plaka</td>
+                    <td>@item.GelisTarihi.ToShortDateString()</td>
+                </tr>
+            }
+
+        </table>
+    }
+
+}
 
 
 <script>

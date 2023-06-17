@@ -12,6 +12,8 @@ namespace OtoServisPro.Controllers.Servis
     {
         private readonly Repository<Musteri> rpMusteri = new Repository<Musteri>();
         private readonly Repository<Marka> rpMarka = new Repository<Marka>();
+        private readonly Repository<Isemri> rpIsemri = new Repository<Isemri>();
+        private readonly Repository<BakimGrup> rpBakimGrup = new Repository<BakimGrup>();
         // GET: Isemri
         public ActionResult Index(string ara)
         {
@@ -28,14 +30,33 @@ namespace OtoServisPro.Controllers.Servis
         public ActionResult IsemriOlustur(int musteriid)
         {
             ViewBag.Marka = rpMarka.List();
+            var musteri = rpMusteri.GetById(musteriid);
             ViewBag.MusteriId = musteriid;
-            return View();
+            ViewBag.AcikIsemirleri = rpIsemri.Get(x => x.Kapali == false && x.MusteriId == musteriid).ToList();
+            ViewBag.KapaliIsemirleri = rpIsemri.Get(x => x.Kapali == true && x.MusteriId == musteriid).ToList();
+
+            ViewBag.Title = "İş Emri Oluştur - " + musteri.AdSoyad;
+            return View(rpIsemri.Get(x=> x.Kapali==true && x.MusteriId==musteriid).OrderByDescending(x=> x.GelisTarihi).ToList());
         }
 
         public ActionResult IsemriKaydet(Isemri isemri)
         {
-
+            rpIsemri.Insert(isemri);
+            return RedirectToAction("AcikIsemirleri");
+        }
+        public ActionResult AcikIsemirleri()
+        {
+            return View(rpIsemri.Get(x=> x.Kapali==false).ToList());
+        }
+        public ActionResult KapaliIsemirleri()
+        {
+            return View(rpIsemri.Get(x => x.Kapali == true).ToList());
+        }
+        public ActionResult IslemYap ( int isemriid)
+        {
+            ViewBag.BakimGrup = rpBakimGrup.List();
             return View();
         }
+    
     }
 }

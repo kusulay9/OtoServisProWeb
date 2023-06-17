@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/OtoServisPro.DataAccessLayer/Migrations/202306171213102_-IgnoreChanges.cs
+/OtoServisPro.DataAccessLayer/Migrations/202306171213102_-IgnoreChanges.Designer.cs
+/OtoServisPro.DataAccessLayer/Migrations/202306171213102_-IgnoreChanges.resx

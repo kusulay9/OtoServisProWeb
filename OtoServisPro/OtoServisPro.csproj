@@ -458,6 +458,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\Servis\BakimGrupController.cs" />
     <Compile Include="Controllers\Servis\IsemriController.cs" />
     <Compile Include="Controllers\Servis\ModelMarkaController.cs" />
     <Compile Include="Controllers\Servis\MusteriController.cs" />
@@ -566,6 +567,8 @@
     <Content Include="Views\Isemri\IsemriOlustur.cshtml" />
     <Content Include="Views\ModelMarka\Index.cshtml" />
     <Content Include="Views\ModelMarka\ModelListesi.cshtml" />
+    <Content Include="Views\Isemri\AcikIsemirleri.cshtml" />
+    <Content Include="Views\Isemri\IslemYap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -575,6 +578,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BakimGrup\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OtoServisPro.BusinessLayer\OtoServisPro.BusinessLayer.csproj">

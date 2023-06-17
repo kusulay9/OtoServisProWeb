@@ -49,6 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext.cs" />
+    <Compile Include="Migrations\202306171213102_-IgnoreChanges.cs" />
+    <Compile Include="Migrations\202306171213102_-IgnoreChanges.Designer.cs">
+      <DependentUpon>202306171213102_-IgnoreChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,6 +65,11 @@
       <Project>{ba77dff9-28a2-4e23-9eab-8edd11d7a360}</Project>
       <Name>OtoServisPro.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202306171213102_-IgnoreChanges.resx">
+      <DependentUpon>202306171213102_-IgnoreChanges.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<OtoServisPro.Entities.Servis.Isemri>
+@{
+    ViewBag.Title = "Açık İş Emirleri";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<table class="table table-sm table-responsive">
+    <thead>
+        <tr>
+            <td>Müşteri</td>
+            <td>Marka</td>
+            <td>Model</td>
+            <td>Plaka</td>
+            <td>Geliş Sebebi</td>            
+            <td>Telefon</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Musteri.AdSoyad</td>
+            <td>@item.Model.Marka.MarkaAd</td>
+            <td>@item.Model.ModelAd</td>
+            <td>@item.Plaka</td>
+            <td>@item.GelisSebebi</td>            
+            <td>@item.Musteri.Telefon</td>
+            <td>
+                @Html.ActionLink("İşlem Yap","IslemYap", "Isemri",new {isemriid=item.IsemriId},new {@class="btn btn-sm btn-secondary"})
+            </td>
+            <td></td>
+        </tr>
+    }
+</table>
+

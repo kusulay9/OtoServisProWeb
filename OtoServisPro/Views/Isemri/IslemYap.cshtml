@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Islem Yap";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        Bakım Grubu
+        @Html.DropDownList("drpBakimGrup",new SelectList(ViewBag.BakimGrup, "BakimGrupId", "BakimGrupAdi"),
+       "Bakım Grubu Seçiniz", new { @class = "form-control form-control-sm", required = "required", onchange="BakimDoldur()" })
+    </div>
+    <div class="col-md-3">
+        Bakım Türü
+        <select name="BakimId" id="BakimId" class="form-control form-control-sm">
+        </select>
+    </div>
+    <div class="col-md-2">
+        Birim Fiyat
+        <input type="number" class="form-control form-control-sm" />
+    </div>
+    <div class="col-md-1">
+        Adet
+       <input type="number" class="form-control form-control-sm" />
+    </div>
+    <div class="col-md-2">
+        Toplam
+        <input type="number" class="form-control form-control-sm" />
+    </div>
+    <div class="col-md-1">
+        <input type="submit" value="Ekle" class="btn btn-sm btn-success" />
+    </div>
+</div>
+<script>
+    function BakimDoldur() {
+        var _bakimgrupid = $('#drpBakimGrup').val();
+        if ($('#drpBakimGrup').val() == "") {
+            $('#BakimId').html("");
+            $('#BakimId').append($('<option></option>').val("").html("Bakım Türü Seçiniz"));
+        }
+        else {
+            $.ajax({
+                url: '/BakimGrup/BakimDoldur',
+                type: 'GET',
+                dataType: 'JSON',
+                data: { bakimgrupid: _bakimgrupid },
+                success: function (bakimlar) {
+                    $('#BakimId').html("");
+                    $.each(bakimlar, function (i, bakim) {
+                        $('#BakimId').append($('<option></option>').val(bakim.BakimId).html(bakim.BakimAdi));
+                    });
+                }
+            });
+        }
+    }
+</script>

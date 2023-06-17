@@ -21,6 +21,8 @@ namespace OtoServisPro.DataAccessLayer
         public DbSet<Marka> Marka { get; set; }
         public DbSet<Model> Model { get; set; }
         public DbSet<Isemri> Isemris { get; set; }
+        public DbSet<BakimGrup> BakimGrups { get; set; }
+        public DbSet<Bakim> Bakims { get; set; }
     }
 }
 
