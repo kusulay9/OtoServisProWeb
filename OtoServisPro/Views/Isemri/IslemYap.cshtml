@@ -23,7 +23,7 @@
             Birim Fiyat
             <div class="input-group input-group-sm">
                 <span class="input-group-text">&#8378;</span>
-                <input type="number" required  step="any" id="bakimBirimFiyat" onchange="BakimHesapla()" class="form-control form-control-sm text-center" onclick="this.select()" value="0" />
+                <input type="number" required step="any" id="bakimBirimFiyat" onchange="BakimHesapla()" class="form-control form-control-sm text-center" onclick="this.select()" value="0" />
                 <input type="hidden" name="BirimFiyat" id="hdbakimBirimFiyat" />
             </div>
 
@@ -47,38 +47,43 @@
     </div>
 }
 
-
-<div class="row mt-3">
-    <div class="col-md-6">
-        Diğer İşlem
-        <input type="text" class="form-control form-control-sm" />
-    </div>
-    <div class="col-md-2">
-        Birim Fiyat
-        <div class="input-group input-group-sm">
-            <span class="input-group-text">&#8378;</span>
-            <input type="number" id="digerBirimFiyat" onchange="DigerHesapla()" class="form-control form-control-sm text-center" onclick="this.select()" value="0" />
+@using (Html.BeginForm("IslemKaydet", "Isemri"))
+{
+    <input type="hidden" name="IsemriId" value="@ViewBag.IsemriId" />
+    <div class="row mt-3">
+        <div class="col-md-6">
+            Diğer İşlem
+            <input type="text" name="IslemAd" required class="form-control form-control-sm" />
         </div>
+        <div class="col-md-2">
+            Birim Fiyat
+            <div class="input-group input-group-sm">
+                <span class="input-group-text">&#8378;</span>
+                <input type="number" required id="digerBirimFiyat" step="any" onchange="DigerHesapla()" class="form-control form-control-sm text-center" onclick="this.select()" value="0" />
+                <input type="hidden" name="BirimFiyat" id="hddigerBirimFiyat" />
+            </div>
 
-    </div>
-    <div class="col-md-1">
-        Adet
-        <input type="number" id="digerAdet" onchange="DigerHesapla()" class="form-control form-control-sm text-center" onclick="this.select()" value="1" />
-    </div>
-    <div class="col-md-2">
-        Toplam
-        <div class="input-group input-group-sm">
-            <span class="input-group-text">&#8378;</span>
-            <input type="number" id="digerAraToplam" onchange="DigerHesapla()" class="form-control form-control-sm text-center" disabled value="0" />
         </div>
+        <div class="col-md-1">
+            Adet
+            <input type="number" id="digerAdet" name="Adet" required onchange="DigerHesapla()" class="form-control form-control-sm text-center" onclick="this.select()" value="1" />
+        </div>
+        <div class="col-md-2">
+            Toplam
+            <div class="input-group input-group-sm">
+                <span class="input-group-text">&#8378;</span>
+                <input type="text" id="digerAraToplam" name="AraToplam" required onchange="DigerHesapla()" class="form-control form-control-sm text-center" readonly value="0" />
+            </div>
 
+        </div>
+        <div class="col-md-1">
+            <br />
+            <input type="submit" value="Ekle" class="btn btn-sm btn-success" />
+        </div>
     </div>
-    <div class="col-md-1">
-        <br />
-        <input type="submit" value="Ekle" class="btn btn-sm btn-success" />
-    </div>
-</div>
-<hr/>
+}
+
+<hr />
 <table class="table table-sm table-responsive table-primary">
     <thead>
         <tr>
@@ -134,12 +139,15 @@
             $('#digerAraToplam').val(0);
         } else {
             var digerAraToplam = digerBirimFiyat * digerAdet;
-            $('#digerAraToplam').val(digerAraToplam);
+            var birimfiyat = $('#digerBirimFiyat').val();
+            $('#hddigerBirimFiyat').val(birimfiyat.replace('.', ','));
+            $('#digerAraToplam').val(digerAraToplam.toFixed(2).replace('.', ','));
         }
 
     }
 
 
+   
     function BakimDoldur() {
         var _bakimgrupid = $('#drpBakimGrup').val();
         if ($('#drpBakimGrup').val() == "") {
