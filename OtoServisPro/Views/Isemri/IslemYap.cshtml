@@ -91,6 +91,7 @@
             <th>Birim Fiyat</th>
             <th>Adet</th>
             <th>Toplam</th>
+            <th></th>
         </tr>
     </thead>
     @foreach (var item in Model)
@@ -100,9 +101,38 @@
             <td>@item.BirimFiyat.ToString("C")</td>
             <td>@item.Adet</td>
             <td>@item.AraToplam.ToString("C")</td>
+            <td>
+                <button type="button" onclick="silmodal(this)" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-islemad="@item.IslemAd" data-id="@item.IslemId" data-bs-target="#SilModal">
+                    Sil
+                </button>
+            </td>
         </tr>
     }
 </table>
+
+<!-- Modal -->
+<div class="modal fade" id="SilModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">İşlem Silme</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <strong id="silIslemAd"></strong> İşlemini Silmek İstediğinize Emin Misiniz ?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("IslemSil", "Isemri", FormMethod.Post))
+                {
+                    <input type="hidden" id="hiddenId" name="id" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
 
 @section scripts{
     <script>
@@ -117,6 +147,13 @@
 }
 
 <script>
+    function silmodal(btn) {
+        var xid = $(btn).data('id');
+        var islemad = $(btn).data('islemad');
+        $('#silIslemAd').text(islemad);
+        $('#hiddenId').val(xid);
+    }
+
     function BakimHesapla() {
         var bakimBirimFiyat = $('#bakimBirimFiyat').val();
         var bakimAdet = $('#bakimAdet').val();
@@ -130,7 +167,6 @@
         }
 
     }
-
 
     function DigerHesapla() {
         var digerBirimFiyat = $('#digerBirimFiyat').val();
@@ -146,8 +182,6 @@
 
     }
 
-
-   
     function BakimDoldur() {
         var _bakimgrupid = $('#drpBakimGrup').val();
         if ($('#drpBakimGrup').val() == "") {

@@ -67,5 +67,11 @@ namespace OtoServisPro.Controllers.Servis
             rpIslem.Insert(islem);
             return RedirectToAction("IslemYap", new {isemriid=islem.IsemriId });
         }
+        public ActionResult IslemSil (int id)
+        {
+            var silinecek = rpIslem.GetById(id);
+            rpIslem.Delete(silinecek);
+            return RedirectToAction("IslemYap", new { isemriid = silinecek.IsemriId });        
+        }
     }
 }
