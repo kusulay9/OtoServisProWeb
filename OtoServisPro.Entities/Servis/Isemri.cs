@@ -23,5 +23,6 @@ namespace OtoServisPro.Entities.Servis
         public bool Kapali { get; set; }
         public virtual Musteri Musteri { get; set; }
         public virtual Model Model { get; set; }
+        public List<Islem> Islems { get; set; }
     }
 }

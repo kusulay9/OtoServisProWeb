@@ -73,6 +73,7 @@
     <Compile Include="Servis\Bakim.cs" />
     <Compile Include="Servis\BakimGrup.cs" />
     <Compile Include="Servis\Isemri.cs" />
+    <Compile Include="Servis\Islem.cs" />
     <Compile Include="Servis\Marka.cs" />
     <Compile Include="Servis\Model.cs" />
     <Compile Include="Servis\Musteri.cs" />
