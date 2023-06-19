@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsIslemler" targetNamespace="http://tempuri.org/dsIslemler.xsd" xmlns:mstns="http://tempuri.org/dsIslemler.xsd" xmlns="http://tempuri.org/dsIslemler.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsIslemler" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsIslemler" msprop:Generator_UserDSName="dsIslemler">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtIslemler" msprop:Generator_TableClassName="dtIslemlerDataTable" msprop:Generator_TableVarName="tabledtIslemler" msprop:Generator_TablePropName="dtIslemler" msprop:Generator_RowDeletingName="dtIslemlerRowDeleting" msprop:Generator_RowChangingName="dtIslemlerRowChanging" msprop:Generator_RowEvHandlerName="dtIslemlerRowChangeEventHandler" msprop:Generator_RowDeletedName="dtIslemlerRowDeleted" msprop:Generator_UserTableName="dtIslemler" msprop:Generator_RowChangedName="dtIslemlerRowChanged" msprop:Generator_RowEvArgName="dtIslemlerRowChangeEvent" msprop:Generator_RowClassName="dtIslemlerRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IsemriId" msprop:Generator_ColumnVarNameInTable="columnIsemriId" msprop:Generator_ColumnPropNameInRow="IsemriId" msprop:Generator_ColumnPropNameInTable="IsemriIdColumn" msprop:Generator_UserColumnName="IsemriId" type="xs:int" minOccurs="0" />
+              <xs:element name="IslemAd" msprop:Generator_ColumnVarNameInTable="columnIslemAd" msprop:Generator_ColumnPropNameInRow="IslemAd" msprop:Generator_ColumnPropNameInTable="IslemAdColumn" msprop:Generator_UserColumnName="IslemAd" type="xs:string" minOccurs="0" />
+              <xs:element name="BirimFiyat" msprop:Generator_ColumnVarNameInTable="columnBirimFiyat" msprop:Generator_ColumnPropNameInRow="BirimFiyat" msprop:Generator_ColumnPropNameInTable="BirimFiyatColumn" msprop:Generator_UserColumnName="BirimFiyat" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Adet" msprop:Generator_ColumnVarNameInTable="columnAdet" msprop:Generator_ColumnPropNameInRow="Adet" msprop:Generator_ColumnPropNameInTable="AdetColumn" msprop:Generator_UserColumnName="Adet" type="xs:int" minOccurs="0" />
+              <xs:element name="AraToplam" msprop:Generator_ColumnVarNameInTable="columnAraToplam" msprop:Generator_ColumnPropNameInRow="AraToplam" msprop:Generator_ColumnPropNameInTable="AraToplamColumn" msprop:Generator_UserColumnName="AraToplam" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IslemId" msprop:Generator_ColumnVarNameInTable="columnIslemId" msprop:Generator_ColumnPropNameInRow="IslemId" msprop:Generator_ColumnPropNameInTable="IslemIdColumn" msprop:Generator_UserColumnName="IslemId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
