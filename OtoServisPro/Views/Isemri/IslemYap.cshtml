@@ -143,6 +143,31 @@
     </div>
 </div>
 
+@using (Html.BeginForm("KaydetveKapat", "Isemri"))
+{
+    <input type="hidden" name="IsemriId" value="@ViewBag.IsemriId" />
+
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <h5>Ödeme İşlemi Ve İş Emri Kapatma</h5>
+            <select name="OdemeSekli" class="form-control" required>
+                <option value="">Ödeme Şekli</option>
+                <option value="Nakit">Nakit</option>
+                <option value="Kart">Kart</option>
+                <option value="Eft">EFT & Havale    </option>
+            </select>
+            <textarea name="Aciklama" class="form-control mt-2" placeholder="Açıklama"></textarea>
+            <div class="input-group mt-2">
+                <span class="input-group-text">&#8378;</span>
+                <input type="text" name="AlinanUcret" required class="form-control text-center fw-bold" onclick="this.select()" value="0" />
+            </div>
+            <input type="submit" class="btn btn-primary mt-2 float-end " value="Kaydet ve İş Emri Kapat" />
+        </div>
+    </div>
+}
+
+
 @section scripts{
     <script>
         $(document).ready(function () {

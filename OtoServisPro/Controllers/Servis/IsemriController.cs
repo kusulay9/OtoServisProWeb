@@ -73,5 +73,22 @@ namespace OtoServisPro.Controllers.Servis
             rpIslem.Delete(silinecek);
             return RedirectToAction("IslemYap", new { isemriid = silinecek.IsemriId });        
         }
+        public ActionResult KaydetveKapat(int IsemriId, string OdemeSekli, string Aciklama, decimal AlinanUcret)
+        {
+            var isemri = rpIsemri.GetById(IsemriId);
+            if (isemri.Kapali)
+            {
+                TempData["No"] = "Bu iş emri zaten kapalıdır";
+                return RedirectToAction("AcikIsemirleri");
+            }
+            isemri.OdemeSekli = OdemeSekli;
+            isemri.Aciklama = Aciklama;
+            isemri.AlinanUcret = AlinanUcret;
+            isemri.Kapali = true;
+            isemri.KapatmaTarihi = DateTime.Now;
+            rpIsemri.Update(isemri);
+            TempData["Ok"] = "İş Emri Kaydedildi ve Kapatıldı";
+            return RedirectToAction("AcikIsemirleri");
+        }
     }
 }
