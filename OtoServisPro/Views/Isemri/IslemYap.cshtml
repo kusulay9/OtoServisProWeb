@@ -108,6 +108,15 @@
             </td>
         </tr>
     }
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="text-end fw-bold">GENEL TOPLAM : </td>
+            <td class="fw-bold">@Model.Sum(x => x.AraToplam).ToString("C")</td>
+            <td></td>
+        </tr>
+    </tfoot>
 </table>
 
 <!-- Modal -->
