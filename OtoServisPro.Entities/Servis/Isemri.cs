@@ -18,13 +18,13 @@ namespace OtoServisPro.Entities.Servis
         public int AracKm { get; set; }
         public int ModelYil { get; set; }
         public string YakitTuru { get; set; }
-        public DateTime GelisTarihi { get; set; }
+        public DateTime? GelisTarihi { get; set; }
         public string GelisSebebi { get; set; }
         public bool Kapali { get; set; }
         public string OdemeSekli { get; set; }
         public string Aciklama { get; set; }
         public decimal AlinanUcret { get; set; }
-        public DateTime KapatmaTarihi { get; set; }
+        public DateTime? KapatmaTarihi { get; set; }
         public virtual Musteri Musteri { get; set; }
         public virtual Model Model { get; set; }
         public List<Islem> Islems { get; set; }
