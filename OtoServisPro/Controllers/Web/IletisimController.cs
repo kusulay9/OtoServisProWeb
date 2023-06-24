@@ -21,6 +21,7 @@ namespace OtoServisPro.Controllers.Web
                 HaritaIletisim hi = new HaritaIletisim();
                 hi.Harita = "-";
                 hi.Iletisim = "-";
+                hi.Unvan = "-";
                 rpIletisim.Insert(hi);
 
             }
@@ -34,6 +35,7 @@ namespace OtoServisPro.Controllers.Web
             var guncellenecek = rpIletisim.GetById(iletisimx.HaritaIletisimId);
             guncellenecek.Harita = iletisimx.Harita;
             guncellenecek.Iletisim = iletisimx.Iletisim;
+            guncellenecek.Unvan = iletisimx.Unvan;
             rpIletisim.Update(guncellenecek);
             return RedirectToAction("Index");
         }

@@ -1,6 +1,11 @@
-﻿using System;
+﻿using Microsoft.Reporting.WebForms;
+using OtoServisPro.BusinessLayer.Abstract;
+using OtoServisPro.Entities.Servis;
+using OtoServisPro.Entities.Web;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,15 +21,15 @@ namespace OtoServisPro.Views.Shared
                 try
                 {
                     int isemriid = Convert.ToInt32(ViewBag.IsemriId);
-                    Repository<Islem> rpIslem = new Repository<Islem>();
+                    Repository<Isemri> rpIslem = new Repository<Isemri>();
                     Repository<HaritaIletisim> rpIletisim = new Repository<HaritaIletisim>();
-                    var islemler = rpIslem.Get(x => x.IsemriId == isemriid).Tolist();
-                    var detay = rpIslem.Get(x => x.IsemriId == isemriid, includeProperties: "Muster,Model").FirstOrDefault();
+                    var islemler = rpIslem.Get(x => x.IsemriId == isemriid).ToList();
+                    var detay = rpIslem.Get(x => x.IsemriId == isemriid, includeProperties: "Musteri,Model").FirstOrDefault();
 
-                    ReportParameter[] prm = nem ReportParemeter[13];
-                    prm[0] = new ReportParameter("Unvan", rpIletisim.Get.FirstOrDefault().Unvan);
-                    prm[1] = new ReportParameter("Iletisim", Regex.Replace(rpIletisim.Get().FirstOrDefault().Iletisim, "<.*?>", string.Empty) );
-                    prm[2] = new ReportParameter("AdSoyad",detay.Musteri.AdSoyad);
+                    ReportParameter[] prm = new ReportParameter [13];
+                    prm[0] = new ReportParameter("Unvan", rpIletisim.Get().FirstOrDefault().Unvan);
+                    prm[1] = new ReportParameter("Iletisim", Regex.Replace(rpIletisim.Get().FirstOrDefault().Iletisim, "<.*?>", string.Empty));
+                    prm[2] = new ReportParameter("AdSoyad", detay.Musteri.AdSoyad);
                     prm[3] = new ReportParameter("Marka", detay.Model.Marka.MarkaAd);
                     prm[4] = new ReportParameter("Model", detay.Model.ModelAd);
                     prm[5] = new ReportParameter("Plaka", detay.Plaka);
@@ -34,7 +39,7 @@ namespace OtoServisPro.Views.Shared
                     prm[9] = new ReportParameter("Telefon", detay.Musteri.Telefon);
                     prm[10] = new ReportParameter("Adres", detay.Musteri.Adres);
                     prm[11] = new ReportParameter("OdemeSekli", detay.OdemeSekli);
-                    prm[12] = new ReportParameter("AlinanUcret", OdemeSekli.AlinanUcret.ToString());
+                    prm[12] = new ReportParameter("AlinanUcret", detay.AlinanUcret.ToString());
 
                     ReportViewer1.LocalReport.ReportPath = Server.MapPath("/RaporDizayn/RaporSonuc.rdlc");
                     ReportViewer1.LocalReport.DataSources.Clear();
@@ -48,5 +53,6 @@ namespace OtoServisPro.Views.Shared
                 }
 
             }
+        }
     }
 }
