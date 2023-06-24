@@ -95,5 +95,32 @@ namespace OtoServisPro.Controllers.Servis
             ViewBag.IsemriId = isemriid;
             return View();
         }
+        public ActionResult HizliIsemriOlustur (int isemriId)
+        {
+            return View(rpIsemri.GetById(isemriId));
+        }
+        [HttpPost]
+        public ActionResult HizliIsemri(Isemri isemri)
+        {
+            var mevcut = rpIsemri.GetById(isemri.IsemriId);
+            if (rpIsemri.Get(x=> x.Plaka==mevcut.Plaka && x.MusteriId==mevcut.MusteriId && x.Kapali==false).Count()>0)
+            {
+                TempData["No"] = "Bu plaka için iş emri zaten açık";
+                return RedirectToAction("AcikIsemirleri");
+            }
+            isemri.SaseNo = mevcut.SaseNo;
+            isemri.Plaka = mevcut.Plaka.Trim();
+            isemri.YakitTuru = mevcut.YakitTuru;
+            isemri.Kapali = false;
+            isemri.Aciklama = null;
+            isemri.AlinanUcret = 0;
+            isemri.OdemeSekli = null;
+            isemri.KapatmaTarihi = null;
+            isemri.ModelId = mevcut.ModelId;
+            isemri.MusteriId = mevcut.MusteriId;
+            isemri.ModelYil = mevcut.ModelYil;
+            rpIsemri.Insert(isemri);
+            return RedirectToAction("AcikIsemirleri");
+        }
     }
 }

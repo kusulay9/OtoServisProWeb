@@ -629,6 +629,7 @@
     <Content Include="Views\Isemri\AcikIsemirleri.cshtml" />
     <Content Include="Views\Isemri\IslemYap.cshtml" />
     <Content Include="Views\Isemri\RaporSayfasi.cshtml" />
+    <Content Include="Views\Isemri\HizliIsemriOlustur.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

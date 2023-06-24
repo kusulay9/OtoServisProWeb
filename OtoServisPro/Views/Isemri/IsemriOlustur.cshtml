@@ -111,6 +111,7 @@
                     <th>Model</th>
                     <th>Plaka</th>
                     <th>Geliş Tarihi</th>
+                    <th></th>                   
                 </tr>
             </thead>
             @foreach (var item in Model)
@@ -120,6 +121,8 @@
                     <td>@item.Model.ModelAd</td>
                     <td>@item.Plaka</td>
                     <td>@item.GelisTarihi</td>
+                    <td>@Html.ActionLink("Hızlı İş Emri Oluştur","HizliIsemriOlustur",new { isemriId = item.IsemriId },new { @class = "btn btn-sm btn-success" })
+                        @Html.ActionLink("Detay","Detay",new { isemriId = item.IsemriId },new { @class = "btn btn-sm btn-secondary" })</td>
                 </tr>
             }
 
