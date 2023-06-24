@@ -257,7 +257,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!BirimFiyat.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>'₺' 0.00;('₺' 0.00)</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -273,6 +275,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>tr-TR</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -317,7 +320,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!AraToplam.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>'₺' 0.00;('₺' 0.00)</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -333,6 +338,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>tr-TR</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -360,7 +366,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsIslemler</DataSetName>
-            <Top>5.57472cm</Top>
+            <Top>6.07964cm</Top>
             <Left>1.1557cm</Left>
             <Height>1.2cm</Height>
             <Width>13.45016cm</Width>
@@ -1018,14 +1024,16 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Ödeme Şekli</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox31</rd:DefaultName>
-            <Top>7.73853cm</Top>
+            <Top>8.05603cm</Top>
             <Left>7.88079cm</Left>
             <Height>0.6cm</Height>
             <Width>3.20441cm</Width>
@@ -1047,15 +1055,17 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
-                    <Style />
+                    <Value>Alınan Ücret</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox31</rd:DefaultName>
-            <Top>8.33853cm</Top>
+            <Top>8.65603cm</Top>
             <Left>7.88079cm</Left>
             <Height>0.6cm</Height>
             <Width>3.20441cm</Width>
@@ -1078,14 +1088,18 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!OdemeSekli.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox31</rd:DefaultName>
-            <Top>7.73853cm</Top>
+            <Top>8.05603cm</Top>
             <Left>11.0852cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
@@ -1108,14 +1122,16 @@
                 <TextRuns>
                   <TextRun>
                     <Value>GENEL TOPLAM</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox31</rd:DefaultName>
-            <Top>7.13853cm</Top>
+            <Top>7.45603cm</Top>
             <Left>7.88079cm</Left>
             <Height>0.6cm</Height>
             <Width>3.20441cm</Width>
@@ -1137,15 +1153,20 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Parameters!AlinanUcret.Value</Value>
-                    <Style />
+                    <Value>=CDbl(Parameters!AlinanUcret.Value)</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>'₺' 0.00;('₺' 0.00)</Format>
+                    </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox31</rd:DefaultName>
-            <Top>8.33853cm</Top>
+            <Top>8.65603cm</Top>
             <Left>11.0852cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
@@ -1158,6 +1179,7 @@
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
               <PaddingBottom>2pt</PaddingBottom>
+              <rd:FormatSymbolCulture>tr-TR</rd:FormatSymbolCulture>
             </Style>
           </Textbox>
           <Textbox Name="Textbox36">
@@ -1167,15 +1189,20 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
-                    <Style />
+                    <Value>=Sum(Fields!AraToplam.Value, "dsIslemler")</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>'₺' 0.00;('₺' 0.00)</Format>
+                    </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox31</rd:DefaultName>
-            <Top>7.13853cm</Top>
+            <Top>7.45603cm</Top>
             <Left>11.0852cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
@@ -1188,10 +1215,11 @@
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
               <PaddingBottom>2pt</PaddingBottom>
+              <rd:FormatSymbolCulture>tr-TR</rd:FormatSymbolCulture>
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>3.63367in</Height>
+        <Height>3.76911in</Height>
         <Style />
       </Body>
       <Width>6.5in</Width>
