@@ -628,6 +628,7 @@
     <Content Include="Views\ModelMarka\ModelListesi.cshtml" />
     <Content Include="Views\Isemri\AcikIsemirleri.cshtml" />
     <Content Include="Views\Isemri\IslemYap.cshtml" />
+    <Content Include="Views\Isemri\RaporSayfasi.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -650,7 +651,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="RaporDizayn\RaporSonuc.rdlc" />
+    <Content Include="RaporDizayn\RaporSonuc.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

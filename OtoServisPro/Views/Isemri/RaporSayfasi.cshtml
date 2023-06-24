@@ -1,0 +1,8 @@
+﻿
+@{
+    ViewBag.Title = "RaporSayfasi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@Html.Partial("RaporPDF", new { isemriid = ViewBag.IsemriId })
+

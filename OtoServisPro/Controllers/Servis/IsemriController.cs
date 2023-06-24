@@ -88,7 +88,12 @@ namespace OtoServisPro.Controllers.Servis
             isemri.KapatmaTarihi = DateTime.Now;
             rpIsemri.Update(isemri);
             TempData["Ok"] = "İş Emri Kaydedildi ve Kapatıldı";
-            return RedirectToAction("AcikIsemirleri");
+            return RedirectToAction("RaporSayfasi",new {isemriid= IsemriId });
+        }
+        public ActionResult RaporSayfasi(int isemriid )
+        {
+            ViewBag.IsemriId = isemriid;
+            return View();
         }
     }
 }

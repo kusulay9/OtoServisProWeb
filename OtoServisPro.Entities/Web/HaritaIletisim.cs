@@ -16,5 +16,6 @@ namespace OtoServisPro.Entities.Web
         [AllowHtml]
         [UIHint("tinymce_full_compressed")]
         public string Iletisim { get; set; }
+        public string Unvan { get; set; }
     }
 }
