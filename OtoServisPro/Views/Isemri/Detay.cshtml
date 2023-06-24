@@ -1,0 +1,100 @@
+﻿@model OtoServisPro.Entities.Servis.Isemri
+    @using OtoServisPro.Entities.Servis
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col">
+        <h5>Araç Bilgileri</h5>
+        <table class="table table-sm table-responsive">
+            <tr>
+                <td>Plaka</td>
+                <td>@Model.Plaka</td>
+            </tr>
+            <tr>
+                <td>Şase No</td>
+                <td>@Model.SaseNo</td>
+            </tr>
+            <tr>
+                <td>Marka / Model</td>
+                <td>@Model.Model.Marka.MarkaAd / @Model.Model.ModelAd</td>
+            </tr>
+            <tr>
+                <td>Model Yılı</td>
+                <td>@Model.ModelYil</td>
+            </tr>
+            <tr>
+                <td>Yakıt Türü</td>
+                <td>@Model.YakitTuru</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col">
+        <h5>Müşteri Bilgisi</h5>
+        <table class="table table-sm table-responsive">
+            <tr>
+                <td>Adı Soyadı</td>
+                <td>@Model.Musteri.AdSoyad</td>
+            </tr>
+            <tr>
+                <td>Telefon</td>
+                <td>@Model.Musteri.Telefon</td>
+            </tr>
+            <tr>
+                <td>E-posta</td>
+                <td>@Model.Musteri.Eposta</td>
+            </tr>
+            <tr>
+                <td>Adres</td>
+                <td>@Model.Musteri.Adres</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<hr />
+<h5 class="text-center">Yapılan İşlemler</h5>
+@if (ViewBag.Islemler!=null)
+{
+    var islemler = (List<Islem>)ViewBag.Islemler;
+    <table class="table table-sm table-responsive">
+        <thead>
+            <tr>
+                <th>İşlem Adı</th>
+                <th>Birim Fiyat</th>
+                <th>Adet</th>
+                <th>Ara Toplam</th>
+            </tr>
+        </thead>
+        @foreach (var item in islemler)
+        {
+            <tr>
+            <td>@item.IslemAd</td>
+            <td>@item.BirimFiyat.ToString("C")</td>
+            <td>@item.Adet</td>
+            <td>@item.AraToplam.ToString("C")</td>
+            <td></td>
+            </tr>
+        }
+    <tfoot class="fw-bold">
+        <tr>
+            <td colspan="3" class="text-end">Genel Toplam : </td>
+            <td>@islemler.Sum(x => x.AraToplam).ToString("C")</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-end">Alınan Ücret : </td>
+            <td>@Model.AlinanUcret.ToString("C")</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-end">Ödeme Şekli : </td>
+            <td>@Model.OdemeSekli</td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                Açıklama : @Model.Aciklama
+            </td>
+        </tr>
+    </tfoot>
+    </table>
+}

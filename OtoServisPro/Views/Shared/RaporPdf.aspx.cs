@@ -21,10 +21,12 @@ namespace OtoServisPro.Views.Shared
                 try
                 {
                     int isemriid = Convert.ToInt32(ViewBag.IsemriId);
-                    Repository<Isemri> rpIslem = new Repository<Isemri>();
+                    Repository<Islem> rpIslem = new Repository<Islem>();
                     Repository<HaritaIletisim> rpIletisim = new Repository<HaritaIletisim>();
+                    Repository<Isemri> rpIsemri = new Repository<Isemri>();
+
                     var islemler = rpIslem.Get(x => x.IsemriId == isemriid).ToList();
-                    var detay = rpIslem.Get(x => x.IsemriId == isemriid, includeProperties: "Musteri,Model").FirstOrDefault();
+                    var detay = rpIsemri.Get(x => x.IsemriId == isemriid, includeProperties: "Musteri,Model").FirstOrDefault();
 
                     ReportParameter[] prm = new ReportParameter [13];
                     prm[0] = new ReportParameter("Unvan", rpIletisim.Get().FirstOrDefault().Unvan);
@@ -41,7 +43,7 @@ namespace OtoServisPro.Views.Shared
                     prm[11] = new ReportParameter("OdemeSekli", detay.OdemeSekli);
                     prm[12] = new ReportParameter("AlinanUcret", detay.AlinanUcret.ToString());
 
-                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("/RaporDizayn/RaporSonuc.rdlc");
+                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/RaporDizayn/RaporSonuc.rdlc");
                     ReportViewer1.LocalReport.DataSources.Clear();
                     ReportDataSource rds = new ReportDataSource("dsIslemler", islemler);
                     ReportViewer1.LocalReport.SetParameters(prm);

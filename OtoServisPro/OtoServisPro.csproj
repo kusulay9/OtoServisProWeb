@@ -630,6 +630,7 @@
     <Content Include="Views\Isemri\IslemYap.cshtml" />
     <Content Include="Views\Isemri\RaporSayfasi.cshtml" />
     <Content Include="Views\Isemri\HizliIsemriOlustur.cshtml" />
+    <Content Include="Views\Isemri\Detay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

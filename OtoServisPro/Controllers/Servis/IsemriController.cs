@@ -122,5 +122,10 @@ namespace OtoServisPro.Controllers.Servis
             rpIsemri.Insert(isemri);
             return RedirectToAction("AcikIsemirleri");
         }
+        public ActionResult Detay(int isemriId)
+        {
+            ViewBag.Islemler = rpIslem.Get(x => x.IsemriId == isemriId).OrderByDescending(x=> x.IslemId).ToList();
+            return View(rpIsemri.GetById(isemriId));
+        }
     }
 }
